@@ -1,0 +1,134 @@
+/* *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+} */
+
+.buttons{
+display: flex;
+margin: 20px auto;
+justify-content: center;
+
+}
+
+button{
+display: block;
+background: crimson;
+margin: 0 20px;
+color: white;
+border: 0;
+border-radius: 5px;
+font-size: 20px;
+padding: 6px 10px;
+}
+
+.popup-wrapper{
+background: rgba(0, 0, 0, 0.8);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: none;
+z-index: 1000;
+}
+
+.popup{
+font-family: Arial, Helvetica, sans-serif;
+width: 100%;
+max-width: 300px;
+text-align: center;
+position: relative;
+background: white;
+margin: 10% auto;
+padding: 20px;
+}
+.popup-close{
+position: absolute;
+top: 5px;
+right: 8px;
+cursor: pointer;
+}
+
+table{
+margin: 20px auto;
+padding: 20px 0;
+color: #fff;
+border-radius: 5px;
+line-height: 30px;
+background-color: black;
+width: 80%;
+border: none;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+th{
+background-color: rgba(255, 255, 255, 0.2);
+}
+
+td:nth-child(1){
+text-align: left;
+text-transform: capitalize;
+padding-left: 15px;
+}
+
+td:nth-child(2){
+text-align: right;
+padding-right: 15px;
+}
+
+ /* Winning Jubilation */
+.Jubilation{
+background-color: rgba(0, 0, 0, 0.8);
+background-image: url(../GIF/VZvx.gif);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+align-items: center;
+display: none;
+z-index: 1000;
+}
+.noWinner{
+background-color: rgba(0, 0, 0, 0.8);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+align-items: center;
+display: none;
+z-index: 1000;
+}
+
+.Jubilation > div,.noWinner > div{
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.cover h1{
+text-transform: capitalize;
+font-size: 2.5em;
+background-color: transparent;
+color: #fff;
+margin-bottom: -70px;
+text-shadow: none;
+}
+
+ .wins{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+
+ .wins h2{
+ color: rgb(243, 156, 75);
+ font-size: 5em;
+ line-height: none;
+ }

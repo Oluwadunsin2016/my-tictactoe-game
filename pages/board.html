@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIC-TAC-TOA GAME</title>
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="stylesheet" href="../css/popup.css" />
+
+     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+       <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/images/icons/icon-96x48.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4" />
+    <meta name="theme-color" content="#FFE1C4" />
+  </head>
+  <body>
+ <div class="buttons">
+   <button class="disable"></button>
+   <button class="pop-btn">Check Score</button>
+   <button class="logout">Logout</button>
+ </div>
+ <audio src="../sounds/"></audio>
+    <div class="popup-wrapper">
+      <div class="popup">
+        <div class="popup-close">x</div>
+        <div class="popup-content">
+          <h2>Score Board</h2>
+          <table>
+            <thead>
+              <th>NAME</th>
+              <th>SCORE</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="first"></td>
+                <td class="scoreOne"></td>
+              </tr>
+              <tr>
+                <td class="second"></td>
+                <td class="scoreTwo"></td>
+              </tr>
+              <tr>
+                <td class="draw"></td>
+                <td class="scoreThree"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="Jubilation wow fadeIn">
+     <div>
+        <div class="cover">
+        <h1 class="wow fadeInDown delay-1s winner"></h1>
+       <div class="wins"> 
+       <h2 class="wow fadeInLeft delay-1s">Wins</h2><img src="../GIF/XqyT.gif" class="wow fadeInRight delay-1s" height="100" alt="">
+       </div>
+        </div>
+     </div>
+    </div>
+    <div class="noWinner wow fadeIn">
+     <div>
+        <div class="cover">
+        <h1 class="wow fadeInRight delay-1s winner">Draw</h1>
+       <div class="wins"> 
+       <h2 class="wow fadeInLeft delay-1s">No Winner</h2>
+       </div>
+        </div>
+     </div>
+    </div>
+
+   <!-- <audio src="" controls></audio> -->
+
+    <div class="container">
+      <h1>TIC-TAC-TOA</h1>
+      <hr />
+      <div class="board">
+        <div class="rowOne">
+          <div class="tile"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+        </div>
+        <div class="rowTwo">
+          <div class="tile"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+        </div>
+        <div class="rowThree">
+          <div class="tile"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+
+    <script src="../js/popup.js"></script>
+
+      <!-- ----------- Animation ----------- -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <!-- <script type="text/javascript" src="wowjs/wow.min.js"></script> -->
+    <script>
+      new WOW().init();
+    </script>
+</html>
