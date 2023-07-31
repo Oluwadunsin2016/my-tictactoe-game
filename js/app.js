@@ -48,9 +48,11 @@ enable=true;
 let loginId = JSON.parse(localStorage.getItem("loginId"));
  let existedPlayers = JSON.parse(localStorage.getItem("registeredPlayers"));
 if (existedPlayers && !loginId) {
- location.href="http://127.0.0.1:5503/index.html";
+//  location.href="http://127.0.0.1:5503/index.html";
+ location.href="https://my-tictactoe-game.vercel.app/index.html";
 }else if (!existedPlayers) {
- location.href="http://127.0.0.1:5503/pages/registration.html";
+//  location.href="http://127.0.0.1:5503/pages/registration.html";
+ location.href="https://my-tictactoe-game.vercel.app/pages/registration.html";
 }
 
 // Logout
@@ -59,7 +61,8 @@ logout.addEventListener('click', ()=>{
 localStorage.removeItem('loginId')
 localStorage.removeItem('counteredId')
 localStorage.removeItem('enableSound')
- location.href="http://127.0.0.1:5503/index.html";
+//  location.href="http://127.0.0.1:5503/index.html";
+ location.href="https://my-tictactoe-game.vercel.app/index.html";
 })
 
 const playerO = "O";
@@ -329,7 +332,8 @@ let enable=true;
   localStorage.counteredId = counteredId;
   currentPlayers[currentId] = currentplayer;
   localStorage.setItem("registeredPlayers", JSON.stringify(currentPlayers));
-  location.href="http://127.0.0.1:5503/pages/board.html";
+  // location.href="http://127.0.0.1:5503/pages/board.html";
+  location.href="https://my-tictactoe-game.vercel.app/pages/board.html";
 }
 
 

@@ -58,7 +58,8 @@
       let counteredId = JSON.parse(localStorage.getItem("counteredId"));
       const redirect = () => {
         if (counteredId != null || counteredId != undefined) {
-          location.href = "http://127.0.0.1:5503/pages/board.html";
+          // location.href = "http://127.0.0.1:5503/pages/board.html";
+          location.href = "https://my-tictactoe-game.vercel.app/pages/board.html";
         }
       };
 
@@ -66,7 +67,8 @@
         localStorage.getItem("registeredPlayers")
       );
       if (!existedPlayers) {
-        location.href = "http://127.0.0.1:5503/pages/registration.html";
+        // location.href = "http://127.0.0.1:5503/pages/registration.html";
+        location.href = "hhttps://my-tictactoe-game.vercel.app/pages/registration.html";
         // location.reload()
       }
 
@@ -87,7 +89,8 @@
           localStorage.loginId = currentplayer.id;
           response.style.color = "green";
           response.innerHTML = "Logged in successfully";
-          location.href = "http://127.0.0.1:5503/pages/opponent.html";
+          // location.href = "http://127.0.0.1:5503/pages/opponent.html";
+          location.href = "https://my-tictactoe-game.vercel.app/pages/opponent.html";
         } else {
           response.style.color = "red";
           response.innerHTML = "Incorrect Credentials";
