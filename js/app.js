@@ -10,6 +10,7 @@ const draw = document.querySelector(".draw");
 let scoreOne = document.querySelector(".scoreOne");
 let scoreTwo = document.querySelector(".scoreTwo");
 let scoreThree = document.querySelector(".scoreThree");
+let clearRecord = document.querySelector(".clear");
 
 //opponent choosing
 const opponentfirstname = document.querySelector("#firstName");
@@ -25,45 +26,44 @@ const noWinner = document.querySelector(".noWinner");
 // Disable sound
 const disable = document.querySelector(".disable");
 
-
-let enable=JSON.parse(localStorage.getItem('enableSound'));
+let enable = JSON.parse(localStorage.getItem("enableSound"));
 if (enable) {
-  disable.textContent='Disable Sound'
-}else{
-  disable.textContent='Enable Sound'
+  disable.textContent = "Disable Sound";
+} else {
+  disable.textContent = "Enable Sound";
 }
 
-disable.addEventListener('click', ()=>{
-if (enable) {
-enable=false;
-  disable.textContent='Enable Sound'
-}else{
-enable=true;
-  disable.textContent='Disable Sound'
-}
-  localStorage.setItem('enableSound',JSON.stringify(enable));
-})
+disable.addEventListener("click", () => {
+  if (enable) {
+    enable = false;
+    disable.textContent = "Enable Sound";
+  } else {
+    enable = true;
+    disable.textContent = "Disable Sound";
+  }
+  localStorage.setItem("enableSound", JSON.stringify(enable));
+});
 
 // Automatic Logout
 let loginId = JSON.parse(localStorage.getItem("loginId"));
- let existedPlayers = JSON.parse(localStorage.getItem("registeredPlayers"));
+let existedPlayers = JSON.parse(localStorage.getItem("registeredPlayers"));
 if (existedPlayers && !loginId) {
-//  location.href="http://127.0.0.1:5503/index.html";
- location.href="https://my-tictactoe-game.vercel.app/index.html";
-}else if (!existedPlayers) {
-//  location.href="http://127.0.0.1:5503/pages/registration.html";
- location.href="https://my-tictactoe-game.vercel.app/pages/registration.html";
+  // location.href = "http://127.0.0.1:5503/index.html";
+   location.href="https://my-tictactoe-game.vercel.app/index.html";
+} else if (!existedPlayers) {
+  // location.href = "http://127.0.0.1:5503/pages/registration.html";
+   location.href="https://my-tictactoe-game.vercel.app/pages/registration.html";
 }
 
 // Logout
-const logout= document.querySelector('.logout')
-logout.addEventListener('click', ()=>{
-localStorage.removeItem('loginId')
-localStorage.removeItem('counteredId')
-localStorage.removeItem('enableSound')
-//  location.href="http://127.0.0.1:5503/index.html";
- location.href="https://my-tictactoe-game.vercel.app/index.html";
-})
+const logout = document.querySelector(".logout");
+logout.addEventListener("click", () => {
+  localStorage.removeItem("loginId");
+  localStorage.removeItem("counteredId");
+  localStorage.removeItem("enableSound");
+  // location.href = "http://127.0.0.1:5503/index.html";
+   location.href="https://my-tictactoe-game.vercel.app/index.html";
+});
 
 const playerO = "O";
 const playerX = "X";
@@ -111,10 +111,26 @@ const seven = rowThree.children.item(0);
 const eight = rowThree.children.item(1);
 const nine = rowThree.children.item(2);
 
+// Clear game record
+clearRecord.addEventListener("click", () => {
+  let confirmed = prompt("Are you sure you want to clear the record?");
+  if (confirmed) {
+    scoreOne.textContent = 0;
+    scoreTwo.textContent = 0;
+    scoreThree.textContent = 0;
+
+    currentplayer.scoreDetails[counteredId].playerOne.score = 0;
+    currentplayer.scoreDetails[counteredId].playerTwo.score = 0;
+    currentplayer.scoreDetails[counteredId].playerThree.score = 0;
+    currentPlayers[currentId] = currentplayer;
+    localStorage.setItem("registeredPlayers", JSON.stringify(currentPlayers));
+  }
+});
+
 board.addEventListener("click", (b) => {
-if (enable) {
-  playSound.play();
-}
+  if (enable) {
+    playSound.play();
+  }
   if (gameOver) {
     playSound.pause();
     return;
@@ -217,8 +233,8 @@ function checkWinner() {
     currentPlayers[currentId] = currentplayer;
     localStorage.setItem("registeredPlayers", JSON.stringify(currentPlayers));
     if (enable) {
-    winnerSound.play();
-}
+      winnerSound.play();
+    }
     winner.innerText = `${currentplayer.scoreDetails[counteredId].playerOne.firstname} ${currentplayer.scoreDetails[counteredId].playerOne.lastname}`;
     won.style.display = "block";
     setTimeout(() => {
@@ -231,8 +247,8 @@ function checkWinner() {
     currentPlayers[currentId] = currentplayer;
     localStorage.setItem("registeredPlayers", JSON.stringify(currentPlayers));
     if (enable) {
-    winnerSound.play();
-}
+      winnerSound.play();
+    }
     winner.innerText = `${currentplayer.scoreDetails[counteredId].playerTwo.firstname} ${currentplayer.scoreDetails[counteredId].playerTwo.lastname}`;
     won.style.display = "block";
     setTimeout(() => {
@@ -258,8 +274,8 @@ function checkWinner() {
     currentPlayers[currentId] = currentplayer;
     localStorage.setItem("registeredPlayers", JSON.stringify(currentPlayers));
     if (enable) {
-    drawSound.play();
-}
+      drawSound.play();
+    }
     noWinner.style.display = "block";
     setTimeout(() => {
       noWinner.style.display = "none";
@@ -276,12 +292,14 @@ function submit() {
   let id = JSON.parse(localStorage.getItem("loginId"));
   let currentId = currentPlayers.findIndex((existing) => existing.id == id);
   let currentplayer = currentPlayers.find((existing) => existing.id == id);
-
+  console.log(currentplayer);
   if (currentplayer.scoreDetails) {
     let onceCountered = currentplayer.scoreDetails.find(
       (countered) =>
-        countered.playerTwo.firstname == opponentfirstname.value.trim().toLowerCase() &&
-        countered.playerTwo.lastname == opponentlastname.value.trim().toLowerCase()
+        countered.playerTwo.firstname ==
+          opponentfirstname.value.trim().toLowerCase() &&
+        countered.playerTwo.lastname ==
+          opponentlastname.value.trim().toLowerCase()
     );
 
     if (!onceCountered) {
@@ -301,7 +319,7 @@ function submit() {
           score: 0,
         },
       });
-    } 
+    }
   } else {
     currentplayer.scoreDetails = [];
     currentplayer.scoreDetails.push({
@@ -324,21 +342,23 @@ function submit() {
 
   let counteredId = currentplayer.scoreDetails.findIndex(
     (countered) =>
-      countered.playerTwo.firstname == opponentfirstname.value.trim().toLowerCase() &&
-      countered.playerTwo.lastname == opponentlastname.value.trim().toLowerCase()
+      countered.playerTwo.firstname ==
+        opponentfirstname.value.trim().toLowerCase() &&
+      countered.playerTwo.lastname ==
+        opponentlastname.value.trim().toLowerCase()
   );
-let enable=true;
- localStorage.setItem('enableSound',JSON.stringify(enable));
+  let enable = true;
+  localStorage.setItem("enableSound", JSON.stringify(enable));
   localStorage.counteredId = counteredId;
   currentPlayers[currentId] = currentplayer;
   localStorage.setItem("registeredPlayers", JSON.stringify(currentPlayers));
-  // location.href="http://127.0.0.1:5503/pages/board.html";
+  // location.href = "http://127.0.0.1:5503/pages/board.html";
   location.href="https://my-tictactoe-game.vercel.app/pages/board.html";
 }
 
-
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/sw.js')
-    .then(reg => console.log('service worker registered'))
-    .catch(err => console.log('service worker not registered', err));
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then((reg) => console.log("service worker registered"))
+    .catch((err) => console.log("service worker not registered", err));
 }

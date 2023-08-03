@@ -91,6 +91,9 @@ hr {
   align-items: center;
   cursor: pointer;
 }
+.tile:active {
+ background-color:#f12473;
+}
 
 .horizontal-line {
   border-bottom: 2px solid black;

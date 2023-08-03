@@ -3,6 +3,18 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 } */
+.opponentPage{
+background: rgb(44, 24, 65) !important;
+}
+
+.opponentPage .popup{
+background: black !important;
+color: white !important;
+}
+.opponentPage .popup input{
+background: transparent !important;
+color: white !important;
+}
 
 .buttons{
 display: flex;
@@ -20,6 +32,22 @@ border: 0;
 border-radius: 5px;
 font-size: 20px;
 padding: 6px 10px;
+}
+button:hover{
+cursor: pointer;
+}
+button:active{
+background: rgb(190, 10, 46);
+}
+
+.clear{
+font-size: 15px;
+background: rgb(221, 10, 10);
+float:right;
+margin-top: 25px;
+}
+.clear:active{
+background: rgb(182, 6, 6);
 }
 
 .popup-wrapper{
@@ -51,13 +79,12 @@ cursor: pointer;
 }
 
 table{
-margin: 20px auto;
 padding: 20px 0;
 color: #fff;
 border-radius: 5px;
 line-height: 30px;
 background-color: black;
-width: 80%;
+width: 100%;
 border: none;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
