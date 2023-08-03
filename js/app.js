@@ -113,7 +113,7 @@ const nine = rowThree.children.item(2);
 
 // Clear game record
 clearRecord.addEventListener("click", () => {
-  let confirmed = prompt("Are you sure you want to clear the record?");
+  let confirmed = confirm("Are you sure you want to clear the record?");
   if (confirmed) {
     scoreOne.textContent = 0;
     scoreTwo.textContent = 0;
